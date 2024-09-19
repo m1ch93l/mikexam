@@ -8,6 +8,8 @@ if (isset($_SESSION['participant'])) {
     header('location: home');
 }
 ?>
+<!-- header of html -->
+<?php include 'includes/header.php'; ?>
 
 <body>
     
