@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<?php //echo password_hash("amasco2023", PASSWORD_BCRYPT);
+session_start();
+if (isset($_SESSION['admin'])) {
+    header('location: admin/home');
+}
+
+if (isset($_SESSION['participant'])) {
+    header('location: home');
+}
+?>
+
 <body>
     
 </body>
