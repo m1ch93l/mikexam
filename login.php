@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
         $row = $query->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['admin'] = $row['id'];
-            header('location: admin/home');
+            header('location: admin');
         } else {
             $_SESSION['error'] = 'Incorrect password';
         }
