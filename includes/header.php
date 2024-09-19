@@ -8,6 +8,6 @@
     <!-- tab icon -->
     <link rel="shortcut icon" href="">
     <!-- bootstrap ui -->
-    <link href="mikexam/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <script src="mikexam/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </head>
