@@ -12,8 +12,9 @@
         $query = $conn->query($sql);
         while ($row = $query->fetch_assoc()) { ?>
             <div class="card mb-1">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $row['fullname'] ?> Total correct answers: <?= $row['total_correct'] ?></h5>
+                <div class="card-body d-flex justify-content-between">
+                    <h5 class="card-title text-capitalize"><?= $row['fullname'] ?></h5>
+                    <h6 class="me-3">Total correct answers: <?= $row['total_correct'] ?></h6>
                 </div>
             </div>
         <?php } ?>
