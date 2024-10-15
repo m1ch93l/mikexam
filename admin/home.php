@@ -42,7 +42,7 @@ $user  = $query->fetch_assoc();
                     while ($participant = $query->fetch_assoc()) { ?>
                         <div class="card mb-1">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $participant['id'] . '. ' . $participant['fullname'] ?></h5>
+                                <h5 class="card-title"><?= $participant['fullname'] ?></h5>
                             </div>
                         </div>
                     <?php }
