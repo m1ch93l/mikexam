@@ -13,7 +13,7 @@
         while ($row = $query->fetch_assoc()) { ?>
             <div class="card mb-1">
                 <div class="card-body">
-                    <h5 class="card-title"><?=$row['fullname'] ?> Total correct answers: <?= $row['total_correct'] ?></h5>
+                    <h5 class="card-title"><?= $row['fullname'] ?> Total correct answers: <?= $row['total_correct'] ?></h5>
                 </div>
             </div>
         <?php } ?>
