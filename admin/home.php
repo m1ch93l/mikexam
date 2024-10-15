@@ -32,6 +32,16 @@ $user  = $query->fetch_assoc();
             class="text-decoration-none text-white float-end h6 me-3 border p-1 text-capitalize">logout</a>
     </header>
     <main>
+        <?php
+        $sql       = "SELECT * FROM question WHERE is_active = 1 ORDER BY id ASC";
+        $query     = $conn->query($sql);
+        $questions = $query->fetch_all(MYSQLI_ASSOC);
+
+        foreach ($questions as $question) { ?>
+            <a href="next.php?next=<?= $question['id'] ?>" class="btn btn-primary btn-lg mx-5 text-capitalize">next
+                #<?= $question['id'] + 1 ?></a>
+        <?php } ?>
+
         <div class="container-md" id="participant-list">
             <div class="row">
                 <div class="col-2"></div>
