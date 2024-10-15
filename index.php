@@ -31,6 +31,8 @@ if (isset($_SESSION['participant'])) {
                                 <button type="submit" class="form-control btn btn-primary" name="login">
                                     Login
                                 </button>
+                                <hr>
+                                <a href="signup" class="float-end btn btn-success btn-sm mb-1 me-2">Register</a>
                             </div>
                         </form>
                     </div>
