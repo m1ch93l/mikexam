@@ -13,8 +13,8 @@ if (isset($_POST['submit'])) {
     } else {
         $sql = "UPDATE question SET is_active = 0 WHERE id = '$quesion_id'";
         $conn->query($sql);
-        $sql = "UPDATE question SET is_active = 1 WHERE id = '$quesion_id' + 1";
-        $conn->query($sql);
+        // $sql = "UPDATE question SET is_active = 1 WHERE id = '$quesion_id' + 1";
+        // $conn->query($sql);
         $sql = "INSERT INTO answer (participant_id, question_id, answer) VALUES ('$participant', '$quesion_id', '$answer')";
         if ($conn->query($sql) === TRUE) {
             
