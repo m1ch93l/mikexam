@@ -37,7 +37,7 @@ $user  = $query->fetch_assoc();
                 <div class="col-2"></div>
                 <div class="col-8">
                     <?php
-                    $sql   = "SELECT * FROM participant ORDER BY id ASC";
+                    $sql   = "SELECT * FROM participant";
                     $query = $conn->query($sql);
                     while ($participant = $query->fetch_assoc()) { ?>
                         <div class="card mb-1">

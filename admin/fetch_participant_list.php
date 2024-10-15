@@ -8,7 +8,7 @@
           LEFT JOIN answer a ON q.id = a.question_id 
           LEFT JOIN participant par2 ON a.participant_id = par2.id
           WHERE par2.id = par.id) as latest_result WHERE latest_result.answer = latest_result.correct_answer) as total_correct
-          FROM participant par";
+          FROM participant par ORDER BY total_correct DESC";
         $query = $conn->query($sql);
         while ($row = $query->fetch_assoc()) { ?>
             <div class="card mb-1">
