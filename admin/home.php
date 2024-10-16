@@ -44,7 +44,7 @@ $user  = $query->fetch_assoc();
                 setTimeout(function() {
                     var audio = new Audio('timesup.m4a');
                     audio.play();
-                }, 25000);
+                }, 20000);
             </script>
         <?php } ?>
 
