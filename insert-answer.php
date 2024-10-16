@@ -11,16 +11,19 @@ if (isset($_POST['submit'])) {
     if ($query->num_rows > 0) {
         header('location: home');
     } else {
-        $sql = "UPDATE question SET is_active = 0 WHERE id = '$quesion_id'";
-        $conn->query($sql);
-        // $sql = "UPDATE question SET is_active = 1 WHERE id = '$quesion_id' + 1";
-        // $conn->query($sql);
-        $sql = "INSERT INTO answer (participant_id, question_id, answer) VALUES ('$participant', '$quesion_id', '$answer')";
-        if ($conn->query($sql) === TRUE) {
-            
-            header('location: home');
+        
+        $sql = "INSERT INTO answer (participant_id, question_id, answer) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iis", $user_id, $question_id, $answer);
+        if ($stmt->execute()) {
+            // Redirect to avoid resubmission
+            header("Location: index.php");
+            exit();
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $conn->error;
         }
+
+        $stmt->close();
+        $conn->close();
     }
 }
