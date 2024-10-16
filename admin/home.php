@@ -40,6 +40,12 @@ $user  = $query->fetch_assoc();
         foreach ($questions as $question) { ?>
             <a href="next.php?next=<?= $question['id'] ?>" class="btn btn-primary btn-lg mx-5 text-capitalize">next
                 #<?= $question['id'] + 1 ?></a>
+            <script>
+                setTimeout(function() {
+                    var audio = new Audio('timesup.m4a');
+                    audio.play();
+                }, 1000);
+            </script>
         <?php } ?>
 
         <div class="container-md" id="participant-list">
