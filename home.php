@@ -1,6 +1,5 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
-
 <body>
     <header class="bg-dark py-3 text-white text-center">
         mikexam
@@ -13,9 +12,13 @@
         $sql      = "SELECT * FROM question WHERE is_active = 1 ORDER BY id ASC";
         $query    = $conn->query($sql);
         $questions = $query->fetch_all(MYSQLI_ASSOC);
-                
+        $answered = [];
+        $sql      = "SELECT question_id FROM answer WHERE participant_id = " . $_SESSION['participant'];
+        $query    = $conn->query($sql);
+        $answered = $query->fetch_all(MYSQLI_ASSOC);
         ?>
-        <?php foreach ($questions as $question) { ?>
+        <?php foreach ($questions as $question) {
+            if (!in_array($question['id'], array_column($answered, 'question_id'))) { ?>
         <h4 class="text-center text-capitalize mb-2"><?= $question['id'] ?>. <?= $question['question'] ?></h4>
 
         <form action="insert-answer" method="post">
@@ -49,6 +52,10 @@
                 <button type="submit" name="submit" class="btn btn-dark btn-lg">Submit</button>
             </div>
         </form>
+        <?php } else { ?>
+        <h4 class="text-center text-capitalize mb-2"><?= $question['id'] ?>. <?= $question['question'] ?></h4>
+        <p class="text-center">You have already answered this question</p>
+        <?php } ?>
         <?php } ?>
     </div>
     <script>
