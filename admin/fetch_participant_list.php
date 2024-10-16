@@ -14,7 +14,7 @@
             <div class="card mb-1">
                 <div class="card-body d-flex justify-content-between">
                     <h5 class="card-title text-capitalize"><?= $row['fullname'] ?></h5>
-                    <h6 class="me-3">Total correct answers: <?= $row['total_correct'] ?></h6>
+                    <h5 class="me-3">Total correct answers: <?= $row['total_correct'] ?></h5>
                 </div>
             </div>
         <?php } ?>
