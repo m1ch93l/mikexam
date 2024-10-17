@@ -21,7 +21,7 @@ if (isset($_SESSION['participant'])) {
                         <h3 class="card-title">mikexam</h3>
                     </div>
                     <div class="card-body">
-                        <form action="login" method="POST">
+                        <form action="crud" method="post">
                             <div class="form-group">
                                 <label for="participant">Username</label>
                                 <input type="text" class="form-control" id="participant" name="participant" autofocus>
