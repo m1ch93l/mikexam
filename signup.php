@@ -1,4 +1,4 @@
-<?php //echo password_hash("amasco2023", PASSWORD_BCRYPT);
+<?php
 session_start();
 if (isset($_SESSION['admin'])) {
     header('location: admin/home');
@@ -22,22 +22,21 @@ if (isset($_SESSION['participant'])) {
                     </div>
                     <div class="card-body">
 
-                            <form action="register" method="post">
-                                <div class="form-group">
-                                    <label for="participant">Username</label>
-                                    <input type="text" class="form-control" id="participant" name="participant"
-                                        autofocus>
-                                    <label for="password">Password</label>
-                                    <input type="text" class="form-control" id="password" name="password">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" class="form-control" id="name" name="name">
-                                    <br>
-                                    <button type="submit" class="float-end btn btn-success btn-sm mb-1 me-2"
-                                        name="register">
-                                        Register
-                                    </button>
-                                </div>
-                            </form>
+                        <form action="crud" method="post">
+                            <div class="form-group">
+                                <label for="participant">Username</label>
+                                <input type="text" class="form-control" id="participant" name="participant" autofocus>
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" id="password" name="password">
+                                <label for="name">Full Name</label>
+                                <input type="text" class="form-control" id="name" name="name">
+                                <br>
+                                <button type="submit" class="float-end btn btn-success btn-sm mb-1 me-2"
+                                    name="register">
+                                    Register
+                                </button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
