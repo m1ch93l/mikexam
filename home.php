@@ -26,6 +26,8 @@
             if (!in_array($question['id'], array_column($answered, 'question_id'))) { ?>
                 <h4 class="text-center text-capitalize mb-2"><?= $question['id'] ?>. <?= $question['question'] ?></h4>
 
+                <?php require_once 'picture.php'; ?>
+
                 <form action="crud" method="post">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         <input type="hidden" name="question_id" value="<?= $question['id'] ?>">
