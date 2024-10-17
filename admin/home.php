@@ -1,14 +1,11 @@
 <?php
 session_start();
-include '../includes/conn.php';
+include '../includes/database.php';
 
 if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
     header('location: index');
 }
 
-$sql   = "SELECT * FROM admin WHERE id = '" . $_SESSION['admin'] . "'";
-$query = $conn->query($sql);
-$user  = $query->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +31,9 @@ $user  = $query->fetch_assoc();
     <main>
         <?php
         $sql       = "SELECT * FROM question WHERE is_active = 1 ORDER BY id ASC";
-        $query     = $conn->query($sql);
-        $questions = $query->fetch_all(MYSQLI_ASSOC);
+        $stmt      = $conn->prepare($sql);
+        $stmt->execute();
+        $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($questions as $question) { ?>
             <a href="next.php?next=<?= $question['id'] ?>" class="btn btn-primary btn-lg mx-5 text-capitalize">next
@@ -53,9 +51,10 @@ $user  = $query->fetch_assoc();
                 <div class="col-2"></div>
                 <div class="col-8">
                     <?php
-                    $sql   = "SELECT * FROM participant";
-                    $query = $conn->query($sql);
-                    while ($participant = $query->fetch_assoc()) { ?>
+                    $sql = "SELECT * FROM participant";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    while ($participant = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                         <div class="card mb-1">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $participant['fullname'] ?></h5>
