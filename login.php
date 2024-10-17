@@ -1,19 +1,21 @@
 <?php
 session_start();
-include 'includes/conn.php';
+include 'includes/database.php';
 
 if (isset($_POST['login'])) {
     $participant    = $_POST['participant'];
     $password = $_POST['password'];
 
-    $sql   = "SELECT * FROM participant WHERE participant_id = '$participant'";
-    $query = $conn->query($sql);
+    $sql = "SELECT * FROM participant WHERE participant_id = :participant";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':participant', $participant);
+    $stmt->execute();
 
-    if ($query->num_rows < 1) {
-        $_SESSION['error'] = 'Cannot find voter with the ID';
+    if ($stmt->rowCount() < 1) {
+        $_SESSION['error'] = 'Cannot find account with the username';
     } else {
-        $row = $query->fetch_assoc();
-        if ($password == $row['password']) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row['password'] == $password) {
             $_SESSION['participant'] = $row['id'];
             $_SESSION['fullname'] = $row['fullname'];
             header('location: home');
@@ -22,13 +24,15 @@ if (isset($_POST['login'])) {
         }
     }
 
-    $sql   = "SELECT * FROM admin WHERE username = '$participant'";
-    $query = $conn->query($sql);
+    $sql   = "SELECT * FROM admin WHERE username = :participant";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':participant', $participant);
+    $stmt->execute();
 
-    if ($query->num_rows < 1) {
+    if ($stmt->rowCount() < 1) {
         $_SESSION['error'] = 'Cannot find account with the username';
     } else {
-        $row = $query->fetch_assoc();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (password_verify($password, $row['password'])) {
             $_SESSION['admin'] = $row['id'];
             header('location: admin');
@@ -42,5 +46,3 @@ if (isset($_POST['login'])) {
 }
 
 header('location: index');
-
-?>
