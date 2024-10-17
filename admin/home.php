@@ -50,18 +50,7 @@ if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <?php
-                    $sql = "SELECT * FROM participant";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->execute();
-                    while ($participant = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-                        <div class="card mb-1">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $participant['fullname'] ?></h5>
-                            </div>
-                        </div>
-                    <?php }
-                    ?>
+                    
                 </div>
                 <div class="col-2"></div>
             </div>
