@@ -13,7 +13,7 @@ $sql  = "UPDATE question SET is_active = 1 WHERE id = :next + 1";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':next', $next);
 if ($stmt->execute()) {
-    header('location: home');
+    header('location: navigator');
 } else {
     echo "Error: " . $stmt->errorInfo()[2];
 }

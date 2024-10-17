@@ -28,24 +28,8 @@ if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
         <a href="logout" type="button"
             class="text-decoration-none text-white float-end h6 me-3 border p-1 text-capitalize">logout</a>
     </header>
+    <a class="text-decoration-none text-dark ms-3" href="navigator">.</a>
     <main>
-        <?php
-        $sql       = "SELECT * FROM question WHERE is_active = 1 ORDER BY id ASC";
-        $stmt      = $conn->prepare($sql);
-        $stmt->execute();
-        $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($questions as $question) { ?>
-            <a href="next.php?next=<?= $question['id'] ?>" class="btn btn-primary btn-lg mx-5 text-capitalize">next
-                #<?= $question['id'] + 1 ?></a>
-            <script>
-                setTimeout(function() {
-                    var audio = new Audio('timesup.m4a');
-                    audio.play();
-                }, 20000);
-            </script>
-        <?php } ?>
-
         <div class="container-md" id="participant-list">
             <div class="row">
                 <div class="col-2"></div>
@@ -70,7 +54,7 @@ if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
             xhttp.send();
         }
 
-        setInterval(fetch_participant_list, 1000);
+        setInterval(fetch_participant_list, 23000);
     </script>
 
 </body>
