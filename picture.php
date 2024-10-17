@@ -1,7 +1,7 @@
 <?php
 if ($question['id'] == 46) { ?>
     <div class="text-center">
-        <img src="public/1.png" alt="46" class="w-50">
+        <img src="public/46.png" alt="46" class="w-50">
     </div>
 <?php } else if ($question['id'] == 47) { ?>
         <div class="text-center">
