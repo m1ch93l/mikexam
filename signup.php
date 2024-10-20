@@ -25,11 +25,11 @@ if (isset($_SESSION['participant'])) {
                         <form action="crud" method="post">
                             <div class="form-group">
                                 <label for="participant">Username</label>
-                                <input type="text" class="form-control" id="participant" name="participant" autofocus>
+                                <input type="text" class="form-control" id="participant" name="participant" autofocus required>
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" name="password">
+                                <input type="text" class="form-control" id="password" name="password" required>
                                 <label for="name">Full Name</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" required>
                                 <br>
                                 <button type="submit" class="float-end btn btn-success btn-sm mb-1 me-2"
                                     name="register">
