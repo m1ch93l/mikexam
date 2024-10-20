@@ -30,19 +30,32 @@ if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
     </header>
     <a class="text-decoration-none text-dark ms-3" href="navigator">.</a>
     <main>
+        <button class="btn btn-dark float-end me-5" id="toggleButton">View</button>
         <div class="container-md" id="participant-list">
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8">
-                    
-                </div>
-                <div class="col-2"></div>
-            </div>
-        </div>
+            
         </div>
     </main>
 
     <script>
+        let toggleState = true;
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            const participantList = document.getElementById("participant-list");
+            const url = toggleState ? 'fetch_participant_list.php' : 'fetch-no-name.php';
+            fetch(url)
+                .then(response => response.text())
+                .then(data => participantList.innerHTML = data);
+            toggleState = !toggleState;
+        });
+        setInterval(function() {
+            const participantList = document.getElementById("participant-list");
+            const url = toggleState ? 'fetch_participant_list.php' : 'fetch-no-name.php';
+            fetch(url)
+                .then(response => response.text())
+                .then(data => participantList.innerHTML = data);
+        }, 5000);
+    </script>
+
+    <!-- <script>
         function fetch_participant_list() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -55,7 +68,7 @@ if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
         }
 
         setInterval(fetch_participant_list, 23000);
-    </script>
+    </script> -->
 
 </body>
 
