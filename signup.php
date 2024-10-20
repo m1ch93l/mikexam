@@ -25,9 +25,9 @@ if (isset($_SESSION['participant'])) {
                         <form action="crud" method="post">
                             <div class="form-group">
                                 <label for="participant">Username</label>
-                                <input type="text" class="form-control" id="participant" name="participant" autofocus required>
+                                <input placeholder="ex. Juan" type="text" class="form-control" id="participant" name="participant" autofocus required>
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" name="password" required>
+                                <input placeholder="ex. 12345" type="text" class="form-control" id="password" name="password" required>
                                 <label for="name">Full Name</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
                                 <br>
