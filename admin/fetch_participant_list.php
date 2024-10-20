@@ -1,7 +1,7 @@
 <?php include '../includes/database.php'; ?>
 <div class="row">
     <div class="col-2"></div>
-    <div class="col-8">
+    <div class="col-md-8 col-sm-12">
         <div id="participant-list">
             <?php
             $sql  = "SELECT par.id, par.fullname, (SELECT COUNT(*) FROM (SELECT q.id as question_id, q.correct_answer, a.answer as answer, par2.id as part_id 
