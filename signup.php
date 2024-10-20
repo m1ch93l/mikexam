@@ -29,7 +29,7 @@ if (isset($_SESSION['participant'])) {
                                 <label for="password">Password</label>
                                 <input placeholder="ex. 12345" type="text" class="form-control" id="password" name="password" required>
                                 <label for="name">Full Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <input placeholder="Juan Dela Cruz" type="text" class="form-control" id="name" name="name" required>
                                 <br>
                                 <button type="submit" class="float-end btn btn-success btn-sm mb-1 me-2"
                                     name="register">
