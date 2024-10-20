@@ -17,7 +17,7 @@
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="card mb-1">
                     <div class="card-body d-flex justify-content-between">
-                        <h5 class="card-title text-capitalize"><?= $row['fullname'] ?></h5>
+                        <h5 class="card-title text-capitalize">Student</h5>
                         <h5 class="me-3">Total correct answers: <?= $row['total_correct'] ?></h5>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 document.getElementById("participant-list").innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "fetch_participant_list.php", true);
+        xhttp.open("GET", "fetch-no-name.php", true);
         xhttp.send();
     }
 
