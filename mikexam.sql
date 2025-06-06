@@ -18,10 +18,10 @@
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `fullname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table mikexam.admin: ~0 rows (approximately)
 INSERT INTO `admin` (`id`, `username`, `password`, `fullname`) VALUES
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `question_id` int DEFAULT NULL,
   `answer` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table mikexam.answer: ~788 rows (approximately)
 
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `participant` (
   `id` int NOT NULL AUTO_INCREMENT,
   `participant_id` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `fullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
+  `fullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table mikexam.participant: ~18 rows (approximately)
 INSERT INTO `participant` (`id`, `participant_id`, `password`, `fullname`) VALUES
@@ -57,11 +57,11 @@ INSERT INTO `participant` (`id`, `participant_id`, `password`, `fullname`) VALUE
 -- Dumping structure for table mikexam.question
 CREATE TABLE IF NOT EXISTS `question` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `question` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `question` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `correct_answer` varchar(50) DEFAULT NULL,
   `is_active` int DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table mikexam.question: ~48 rows (approximately)
 INSERT INTO `question` (`id`, `question`, `correct_answer`, `is_active`) VALUES
