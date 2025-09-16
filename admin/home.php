@@ -29,18 +29,26 @@ if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
             class="text-decoration-none text-white float-end h6 me-3 border p-1 text-capitalize">logout</a>
     </header>
     <div class="container-fluid mb-3">
-        <a class="text-decoration-none text-dark ms-3" href="navigator">.</a>
+        <a class="text-decoration-none text-dark ms-3" href="navigator">
+            Navigator
+        </a>
+        <a href="manage-question.php" class="">
+            Manage Questions
+        </a>
         <button class="btn btn-dark btn-sm me-5 float-end" id="toggleButton">View</button>
     </div>
     <main>
         <div class="container-md" id="participant-list">
-            
+            <div class="mx-auto">
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span role="status">Loading...</span>
+            </div>
         </div>
     </main>
 
     <script>
         let toggleState = true;
-        document.getElementById("toggleButton").addEventListener("click", function() {
+        document.getElementById("toggleButton").addEventListener("click", function () {
             const participantList = document.getElementById("participant-list");
             const url = toggleState ? 'fetch_participant_list.php' : 'fetch-no-name.php';
             fetch(url)
@@ -48,7 +56,7 @@ if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
                 .then(data => participantList.innerHTML = data);
             toggleState = !toggleState;
         });
-        setInterval(function() {
+        setInterval(function () {
             const participantList = document.getElementById("participant-list");
             const url = toggleState ? 'fetch_participant_list.php' : 'fetch-no-name.php';
             fetch(url)
