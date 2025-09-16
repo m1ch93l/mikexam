@@ -20,8 +20,8 @@ include '../includes/database.php';
 <body>
     <div class="container">
         <div class="row">
-
-            <div class="col-8 text-center text-uppercase">
+            <a href="home">Go back to homepage</a>
+            <div class="col-12 text-center text-uppercase">
                 <?php
                 $sql  = "SELECT * FROM question WHERE is_active = 1 ORDER BY id ASC";
                 $stmt = $conn->prepare($sql);
@@ -29,9 +29,9 @@ include '../includes/database.php';
                 $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($questions as $question) { ?>
-                    <div style="position: absolute; left: 40%; top: 45%; transform: translate(-30%, -50%);">
+                    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
                         <a href="next.php?next=<?= $question['id'] ?>"
-                            class="btn btn-primary btn-lg mx-5 text-capitalize">next
+                            class="btn btn-primary btn-lg mx-5 text-uppercase">next
                             #<?= $question['id'] + 1 ?></a>
                     </div>
                     <script>
