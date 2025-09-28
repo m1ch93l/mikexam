@@ -31,9 +31,10 @@ function editQuestion($conn)
 }
 function updateQuestion($conn)
 {
-    $sql  = 'UPDATE question SET question = :question WHERE id = :id';
+    $sql  = 'UPDATE question SET question = :question, correct_answer = :correct_answer WHERE id = :id';
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':question', $_POST['question']);
+    $stmt->bindParam(':correct_answer', $_POST['correct_answer']);
     $stmt->bindParam(':id', $_POST['id']);
     $stmt->execute();
 }
