@@ -36,9 +36,10 @@ include '../includes/database.php';
                     </div>
                     <script>
                         setTimeout(function () {
-                            var audio = new Audio('timesup.m4a');
+                            var audio = new Audio('timesup.mp3');
                             audio.play();
-                        }, 23000);
+                            audio.volume = 100;
+                        }, 20000);
                     </script>
                 <?php } ?>
             </div>

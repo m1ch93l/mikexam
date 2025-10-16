@@ -8,7 +8,7 @@
             class="text-decoration-none text-white float-end h6 me-3 border p-1 text-capitalize">logout</a>
     </header>
     <div class="container-md">
-        <h5 class="text-center text-capitalize mb-1">Welcome, <?= $_SESSION['fullname'] ?></h5>
+        <h5 class="text-center text-uppercase mb-1 text-decoration-underline"><?= $_SESSION['fullname'] ?></h5>
         <?php
         $sql  = "SELECT * FROM question WHERE is_active = 1 ORDER BY id ASC";
         $stmt = $conn->prepare($sql);
@@ -33,24 +33,25 @@
                         <input type="hidden" name="question_id" value="<?= $question['id'] ?>">
                         <div class="col">
                             <input type="radio" class="btn-check mx-auto mb-3 text-uppercase" value="a" id="btnradio1"
-                                name="answer">
+                                name="answer" required>
                             <label class="btn btn-primary btn-lg d-block mx-auto" for="btnradio1"
                                 onclick="changeColor(this)">A</label>
                         </div>
                         <div class="col">
                             <input type="radio" class="btn-check mx-auto mb-3 text-uppercase" value="b" id="btnradio2"
-                                name="answer">
+                                name="answer" required>
                             <label class="btn btn-success btn-lg d-block mx-auto" for="btnradio2"
                                 onclick="changeColor(this)">B</label>
                         </div>
                         <div class="col">
-                            <input type="radio" class="btn-check mb-3 text-uppercase" value="c" id="btnradio3" name="answer">
+                            <input type="radio" class="btn-check mb-3 text-uppercase" value="c" id="btnradio3" name="answer"
+                                required>
                             <label class="btn btn-danger btn-lg d-block mx-auto d-block" for="btnradio3"
                                 onclick="changeColor(this)">C</label>
                         </div>
                         <div class="col">
                             <input type="radio" class="btn-check mb-3 text-uppercase" value="d" id="btnradio4" name="answer"
-                                onclick="changeColor(this)">
+                                required>
                             <label class="btn btn-info btn-lg d-block mx-auto d-block" for="btnradio4"
                                 onclick="changeColor(this)">D</label>
                         </div>
@@ -61,6 +62,10 @@
                 </form>
             <?php } else { ?>
                 <h4 class="text-center text-capitalize mb-2"><?= $question['id'] ?>. <?= $question['question'] ?></h4>
+                <!-- button to refresh the page -->
+                <div class="text-center mb-3 mt-3">
+                    <button class="btn btn-warning" onclick="location.reload()">Refresh Question!</button>
+                </div>
                 <p class="text-center">You have already answered this question</p>
             <?php } ?>
         <?php } ?>
