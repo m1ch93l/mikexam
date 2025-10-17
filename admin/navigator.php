@@ -21,6 +21,7 @@ include '../includes/database.php';
     <div class="container">
         <div class="row">
             <a href="home">Go back to homepage</a>
+            <a href="reset">Reset</a>
             <div class="col-12 text-center text-uppercase">
                 <?php
                 $sql  = "SELECT * FROM question WHERE is_active = 1 ORDER BY id ASC";
