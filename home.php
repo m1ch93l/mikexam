@@ -27,7 +27,7 @@
         ?>
         <?php foreach ($questions as $question) {
             if (!in_array($question['id'], array_column($answered, 'question_id'))) { ?>
-                <h4 class="text-center text-capitalize mb-2"><?= $question['id'] ?>. <?= $question['question'] ?></h4>
+                <h4 class="text-center mb-2"><?= $question['id'] ?>. <?= $question['question'] ?></h4>
 
                 <?php require_once 'picture.php'; ?>
 
