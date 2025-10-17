@@ -3,6 +3,9 @@
 
 <body>
     <header class="bg-dark py-3 text-white text-center">
+        <a type="button" href="status.php?participant=<?= $_SESSION['participant'] ?>"
+            class="btn btn-secondary btn-sm float-start ms-3" hx-boost="true">Check
+            Status</a>
         mikexam
         <a href="logout" type="button"
             class="text-decoration-none text-white float-end h6 me-3 border p-1 text-capitalize">logout</a>
