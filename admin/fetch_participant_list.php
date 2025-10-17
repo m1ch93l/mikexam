@@ -3,7 +3,7 @@
     <div class="col-2"></div>
     <div class="col-md-8 col-sm-12">
         <div id="participant-list">
-        <?php
+            <?php
             $sql = "SELECT participant.id
                 AS participant_id, participant.fullname,
                 COUNT(CASE WHEN a.answer = q.correct_answer THEN 1 END) AS total_correct
@@ -13,20 +13,39 @@
                 GROUP BY participant.id, participant.fullname
                 ORDER BY total_correct DESC";
 
-                $stmt = $conn->prepare($sql);
-                $stmt->execute();
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
 
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="card mb-1 shadow">
                     <div class="card-body d-flex justify-content-between">
                         <h5 class="card-title text-capitalize"><?= htmlspecialchars($row['fullname']) ?></h5>
                         <h5 class="me-3">Total correct answers: <?= $row['total_correct'] ?></h5>
                     </div>
                 </div>
-        <?php } ?>
+            <?php } ?>
         </div>
     </div>
-    <div class="col-2"></div>
+    <div class="col-2">
+        <!-- pop up -->
+        <?php
+
+        $sql  = "SELECT * FROM participant";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($row['check_status'] == 1) {
+                ?>
+                <div class="text-danger float-end">
+                    <p><?= $row['fullname'] . " is checking!" ?></p>
+                </div>
+            <?php } else {
+                echo "";
+            }
+        }
+        ?>
+    </div>
 </div>
 
 <script>
