@@ -31,15 +31,15 @@ include '../includes/database.php';
                 foreach ($questions as $question) { ?>
                     <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
                         <a href="next.php?next=<?= $question['id'] ?>"
-                            class="btn btn-primary btn-lg mx-5 text-uppercase">next
-                            #<?= $question['id'] + 1 ?></a>
+                            class="btn btn-primary btn-lg mx-5 text-uppercase">CURRENT QUESTION
+                            #<?= $question['id'] ?></a>
                     </div>
                     <script>
                         setTimeout(function () {
                             var audio = new Audio('timesup.mp3');
                             audio.play();
                             audio.volume = 100;
-                        }, 20000);
+                        }, 12000);
                     </script>
                 <?php } ?>
             </div>

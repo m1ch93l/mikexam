@@ -2,6 +2,7 @@
 
 foreach ($questions as $question) : ?>
     <tr>
+        <td class="text-center"><?= $question['id'] ?? '' ?></td>
         <td class="text-center"><?= $question['question'] ?? '' ?></td>
         <td class="text-center text-capitalize"><?= $question['correct_answer'] ?? '' ?></td>
         <td class="text-center"><!-- e-click para sa lumabas ang modal -->

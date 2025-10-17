@@ -52,7 +52,7 @@
                         <div class="col">
                             <input type="radio" class="btn-check mb-3 text-uppercase" value="d" id="btnradio4" name="answer"
                                 required>
-                            <label class="btn btn-info btn-lg d-block mx-auto d-block" for="btnradio4"
+                            <label class="btn btn-secondary btn-lg d-block mx-auto d-block" for="btnradio4"
                                 onclick="changeColor(this)">D</label>
                         </div>
                     </div>

@@ -20,17 +20,21 @@
             <a class="pb-2" href="home">Go back to homepage</a>
         </div>
 
-        <form hx-post="crud.php?action=create" hx-target="#question-list" hx-swap="beforeend">
-            <div class="input-group">
-                <input name="question" type="text" class="form-control"
-                    placeholder="Please type your Question here ...">
-                <button class="btn btn-sm btn-warning">Add Question</button>
-            </div>
-        </form>
+        <div class="sticky-top">
+            <form hx-post="crud.php?action=create" hx-target="#question-list" hx-swap="beforeend">
+                <div class="input-group pt-3">
+                    <input name="question" type="text" class="form-control"
+                        placeholder="Please type your Question here ..." required>
+                    <button class="btn btn-sm btn-warning">Add Question</button>
+                </div>
+            </form>
+        </div>
+
         <div class="table-responsive border mt-2">
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th class="text-center text-capitalize" width="5%">id</th>
                         <th class="text-center text-capitalize">question</th>
                         <th class="text-center text-capitalize">answer</th>
                         <th class="text-center" width="10%">Actions</th>
